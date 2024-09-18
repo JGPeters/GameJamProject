@@ -56,4 +56,4 @@ shape = SubResource("CircleShape2D_2epoi")
 sprite_frames = SubResource("SpriteFrames_y1cwo")
 animation = &"Walking Forward"
 autoplay = "Walking Forward"
-frame_progress = 0.449267
+frame_progress = 0.925499
