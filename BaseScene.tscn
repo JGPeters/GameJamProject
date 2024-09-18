@@ -1,12 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cil4k6i5413ay"]
+[gd_scene load_steps=8 format=3 uid="uid://cil4k6i5413ay"]
+
+[ext_resource type="Texture2D" uid="uid://c7haycckahrlm" path="res://art/Animations/Goblin Dude Walking Forward-Sheet.png" id="1_54may"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2epoi"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pasvr"]
+atlas = ExtResource("1_54may")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ailg"]
+atlas = ExtResource("1_54may")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu5nd"]
+atlas = ExtResource("1_54may")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwy5s"]
+atlas = ExtResource("1_54may")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1cwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pasvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ailg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu5nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwy5s")
+}],
+"loop": true,
+"name": &"Walking Forward",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(24, 20)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_2epoi")
 
-[node name="Node2D" type="Node2D" parent="CharacterBody2D/CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_y1cwo")
+animation = &"Walking Forward"
+autoplay = "Walking Forward"
+frame = 1
+frame_progress = 0.952066
