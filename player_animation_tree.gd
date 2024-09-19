@@ -6,7 +6,7 @@ extends Node2D
 
 var last_facing_direction := Vector2(0, -1)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	var idle = !player.velocity
 	
