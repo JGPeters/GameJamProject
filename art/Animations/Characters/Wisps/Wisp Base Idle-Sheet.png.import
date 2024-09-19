@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7haycckahrlm"
-path="res://.godot/imported/Goblin Dude Walking Forward-Sheet.png-8258a4abd144e11d4e59f04592066ac4.ctex"
+uid="uid://bspj25wtlmj86"
+path="res://.godot/imported/Wisp Base Idle-Sheet.png-d661ea96ec30e6266fe61940dbb4cdfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Animations/Goblin Dude Walking Forward-Sheet.png"
-dest_files=["res://.godot/imported/Goblin Dude Walking Forward-Sheet.png-8258a4abd144e11d4e59f04592066ac4.ctex"]
+source_file="res://art/Animations/Characters/Wisps/Wisp Base Idle-Sheet.png"
+dest_files=["res://.godot/imported/Wisp Base Idle-Sheet.png-d661ea96ec30e6266fe61940dbb4cdfb.ctex"]
 
 [params]
 

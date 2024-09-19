@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bspj25wtlmj86"
-path="res://.godot/imported/Wisp Base Idle-Sheet.png-015efedface457e86dc1597aab56ec2a.ctex"
+uid="uid://wu6mgmv7e73c"
+path="res://.godot/imported/Goblin Dude Master-Sheet.png-8420d1a70218998b934a296b6eb5eaaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Animations/Wisp Base Idle-Sheet.png"
-dest_files=["res://.godot/imported/Wisp Base Idle-Sheet.png-015efedface457e86dc1597aab56ec2a.ctex"]
+source_file="res://art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png"
+dest_files=["res://.godot/imported/Goblin Dude Master-Sheet.png-8420d1a70218998b934a296b6eb5eaaf.ctex"]
 
 [params]
 
