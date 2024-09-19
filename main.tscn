@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b513tu8hg83kp"]
+[gd_scene load_steps=3 format=3 uid="uid://b513tu8hg83kp"]
 
 [ext_resource type="PackedScene" uid="uid://cil4k6i5413ay" path="res://BaseScene.tscn" id="1_d8aqr"]
+[ext_resource type="PackedScene" uid="uid://g3k488xru85u" path="res://rblock.tscn" id="2_i27ag"]
 
 [node name="main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_d8aqr")]
+
+[node name="rblock" parent="." instance=ExtResource("2_i27ag")]
+position = Vector2(136, 34)

@@ -220,6 +220,7 @@ transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dkejo")
+speed = 40
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

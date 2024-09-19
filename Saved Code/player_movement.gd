@@ -9,8 +9,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(delta):
 	var input_dir = Vector2.ZERO
+	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):
 		input_dir.x += 1
 	if Input.is_action_pressed("left"):
@@ -23,5 +24,5 @@ func _process(delta: float) -> void:
 	if input_dir.length() > 0:
 		velocity = input_dir.normalized() * speed
 		
-	move_and_collide(input_dir * delta)
+	move_and_collide(velocity * delta)
 	
