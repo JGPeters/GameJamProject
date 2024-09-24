@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddsmymehmunf7"]
+
+[ext_resource type="StyleBox" uid="uid://cwbbyeixrpwtv" path="res://resources/Themes_Stylebox/hover_button.tres" id="1_cjr7u"]
+[ext_resource type="Texture2D" uid="uid://chopu8pmrgfok" path="res://art/UI/UI_NPR_Style_001.png" id="1_va00v"]
+[ext_resource type="StyleBox" uid="uid://b1kyygc5ctmys" path="res://resources/Themes_Stylebox/normal_button.tres" id="2_chpbw"]
+[ext_resource type="StyleBox" uid="uid://dvttt4w02sxe1" path="res://resources/Themes_Stylebox/Pressed_button.tres" id="3_3720w"]
+[ext_resource type="Script" path="res://Prefabs/UI/ui.gd" id="4_67k8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arksv"]
+
+[sub_resource type="Theme" id="Theme_ultgc"]
+Button/font_sizes/font_size = 16
+Button/styles/focus = SubResource("StyleBoxEmpty_arksv")
+Button/styles/hover = ExtResource("1_cjr7u")
+Button/styles/normal = ExtResource("2_chpbw")
+Button/styles/pressed = ExtResource("3_3720w")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -92.5
+offset_right = 164.0
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_ultgc")
+script = ExtResource("4_67k8e")
+
+[node name="StartMenu_NPR" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 321.0
+offset_bottom = 174.0
+texture = ExtResource("1_va00v")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu_NPR"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Play" type="Button" parent="StartMenu_NPR/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="StartMenu_NPR/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="StartMenu_NPR/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="StartMenu_NPR/VBoxContainer/Play" to="." method="_on_play_pressed"]

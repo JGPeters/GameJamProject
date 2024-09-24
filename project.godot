@@ -33,6 +33,10 @@ project/assembly_name="Echoes Gathering Game Jam"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[gui]
+
+theme/custom_font="res://art/Fonts/MinimalPixelFont.ttf"
+
 [input]
 
 up={
@@ -63,3 +67,4 @@ right={
 [rendering]
 
 textures/default_filters/anisotropic_filtering_level=0
+2d/snap/snap_2d_transforms_to_pixel=true
