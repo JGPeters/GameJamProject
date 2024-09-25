@@ -1,19 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddsmymehmunf7"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0nhuy4rousj"]
 
-[ext_resource type="StyleBox" uid="uid://cwbbyeixrpwtv" path="res://resources/Themes_Stylebox/hover_button.tres" id="1_cjr7u"]
-[ext_resource type="Texture2D" uid="uid://chopu8pmrgfok" path="res://art/UI/UI_NPR_Style_001.png" id="1_va00v"]
-[ext_resource type="StyleBox" uid="uid://b1kyygc5ctmys" path="res://resources/Themes_Stylebox/normal_button.tres" id="2_chpbw"]
-[ext_resource type="StyleBox" uid="uid://dvttt4w02sxe1" path="res://resources/Themes_Stylebox/Pressed_button.tres" id="3_3720w"]
-[ext_resource type="Script" path="res://Prefabs/UI/ui.gd" id="4_67k8e"]
+[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/hover_button.tres" id="1_6a5q2"]
+[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/normal_button.tres" id="2_tka1l"]
+[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/Pressed_button.tres" id="3_f01xu"]
+[ext_resource type="Script" path="res://Prefabs/UI/ui.gd" id="4_y7wak"]
+[ext_resource type="Texture2D" path="res://art/UI/UI_NPR_Style_001.png" id="5_i7q1i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arksv"]
 
 [sub_resource type="Theme" id="Theme_ultgc"]
 Button/font_sizes/font_size = 16
 Button/styles/focus = SubResource("StyleBoxEmpty_arksv")
-Button/styles/hover = ExtResource("1_cjr7u")
-Button/styles/normal = ExtResource("2_chpbw")
-Button/styles/pressed = ExtResource("3_3720w")
+Button/styles/hover = ExtResource("1_6a5q2")
+Button/styles/normal = ExtResource("2_tka1l")
+Button/styles/pressed = ExtResource("3_f01xu")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -31,7 +31,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_ultgc")
-script = ExtResource("4_67k8e")
+script = ExtResource("4_y7wak")
 
 [node name="StartMenu_NPR" type="NinePatchRect" parent="."]
 texture_filter = 1
@@ -40,7 +40,7 @@ offset_left = -7.0
 offset_top = -11.0
 offset_right = 321.0
 offset_bottom = 174.0
-texture = ExtResource("1_va00v")
+texture = ExtResource("5_i7q1i")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 9
 patch_margin_top = 9

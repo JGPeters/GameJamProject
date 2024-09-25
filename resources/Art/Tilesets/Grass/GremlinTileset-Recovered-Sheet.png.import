@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu1lu1ldmhnm0"
-path="res://.godot/imported/GremlinTileset-Recovered-Sheet.png-321af1a5beeeed41611c306b2b5d563f.ctex"
+path="res://.godot/imported/GremlinTileset-Recovered-Sheet.png-16e99de9e02acd5ebe81de344aa4b022.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Tilesets/Grass/GremlinTileset-Recovered-Sheet.png"
-dest_files=["res://.godot/imported/GremlinTileset-Recovered-Sheet.png-321af1a5beeeed41611c306b2b5d563f.ctex"]
+source_file="res://resources/Art/Tilesets/Grass/GremlinTileset-Recovered-Sheet.png"
+dest_files=["res://.godot/imported/GremlinTileset-Recovered-Sheet.png-16e99de9e02acd5ebe81de344aa4b022.ctex"]
 
 [params]
 

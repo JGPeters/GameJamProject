@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wu6mgmv7e73c"
-path="res://.godot/imported/Goblin Dude Master-Sheet.png-3a865bb67c2c92b6f7e355728aa5e4ed.ctex"
+uid="uid://cmhbsgwj8d2iw"
+path="res://.godot/imported/Box.png-e9e4c4a199d71285dfc543117034a986.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png"
-dest_files=["res://.godot/imported/Goblin Dude Master-Sheet.png-3a865bb67c2c92b6f7e355728aa5e4ed.ctex"]
+source_file="res://resources/Art/Pictures/Box.png"
+dest_files=["res://.godot/imported/Box.png-e9e4c4a199d71285dfc543117034a986.ctex"]
 
 [params]
 

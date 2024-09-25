@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctgincm66jrgg"
-path="res://.godot/imported/UI books & more.png-381168b3ed4688a68d11baaac3949ebc.ctex"
+path="res://.godot/imported/UI books & more.png-f37ba92976428c491eb5132ce0a7dc61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Tilesets/UI/UI books & more.png"
-dest_files=["res://.godot/imported/UI books & more.png-381168b3ed4688a68d11baaac3949ebc.ctex"]
+source_file="res://resources/Art/Tilesets/UI/UI books & more.png"
+dest_files=["res://.godot/imported/UI books & more.png-f37ba92976428c491eb5132ce0a7dc61.ctex"]
 
 [params]
 
