@@ -5,8 +5,9 @@
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://b2nul61v2446v" path="res://Saved Code/player_walk_blend_space.tres" id="3_xoxna"]
 [ext_resource type="Script" path="res://player_animation_tree.gd" id="4_tocfg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqfn6"]
-size = Vector2(12, 13)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iehrl"]
+radius = 6.0
+height = 15.0
 
 [sub_resource type="Animation" id="Animation_iradj"]
 length = 0.001
@@ -385,13 +386,15 @@ states/Walk/position = Vector2(459, 68)
 transitions = ["Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_ok3tq"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_3mg3b"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_awuqn")]
 
 [node name="Player" type="CharacterBody2D"]
+slide_on_ceiling = false
 script = ExtResource("1_0onc8")
 speed = 40
+can_Move = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_uqfn6")
+position = Vector2(0, -0.5)
+shape = SubResource("CapsuleShape2D_iehrl")
 
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("2_oo6tl")
@@ -416,7 +419,5 @@ parameters/Walk/blend_position = Vector2(0.011236, 0.115044)
 [node name="Player Animation" type="Node2D" parent="." node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("4_tocfg")
 animation_tree = NodePath("../AnimationTree")
-
-[node name="Player Movement" type="Node2D" parent="."]
 
 [node name="Node2D" type="Camera2D" parent="."]

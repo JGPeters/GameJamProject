@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu1lu1ldmhnm0"
-path="res://.godot/imported/GremlinTileset-Recovered-Sheet.png-542df424620ca576ffd58d3549512f24.ctex"
+uid="uid://bvxc5u1i00sev"
+path="res://.godot/imported/Cave Tileset.png-fd8c7ce3254a9a19f33928658206e58a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/TileSets/Grass/GremlinTileset-Recovered-Sheet.png"
-dest_files=["res://.godot/imported/GremlinTileset-Recovered-Sheet.png-542df424620ca576ffd58d3549512f24.ctex"]
+source_file="res://art/Tilesets/Cave Tileset.png"
+dest_files=["res://.godot/imported/Cave Tileset.png-fd8c7ce3254a9a19f33928658206e58a.ctex"]
 
 [params]
 
@@ -25,10 +25,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
