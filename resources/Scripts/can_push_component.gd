@@ -1,0 +1,2 @@
+extends component
+class_name movement_attribute

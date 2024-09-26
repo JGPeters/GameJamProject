@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d11ao77chqsds"]
+
+[ext_resource type="Script" path="res://resources/Scripts/pushable_component.gd" id="1_t2cn6"]
+
+[node name="Pushable Component" type="Node2D"]
+script = ExtResource("1_t2cn6")

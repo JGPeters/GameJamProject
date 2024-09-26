@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bi0nhuy4rousj"]
 
-[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/hover_button.tres" id="1_6a5q2"]
-[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/normal_button.tres" id="2_tka1l"]
-[ext_resource type="StyleBox" path="res://resources/Themes_Stylebox/Pressed_button.tres" id="3_f01xu"]
-[ext_resource type="Script" path="res://Prefabs/UI/ui.gd" id="4_y7wak"]
-[ext_resource type="Texture2D" path="res://art/UI/UI_NPR_Style_001.png" id="5_i7q1i"]
+[ext_resource type="StyleBox" uid="uid://cwbbyeixrpwtv" path="res://resources/Art/Themes_Stylebox/hover_button.tres" id="1_6a5q2"]
+[ext_resource type="StyleBox" uid="uid://b1kyygc5ctmys" path="res://resources/Art/Themes_Stylebox/normal_button.tres" id="2_tka1l"]
+[ext_resource type="StyleBox" uid="uid://dvttt4w02sxe1" path="res://resources/Art/Themes_Stylebox/Pressed_button.tres" id="3_f01xu"]
+[ext_resource type="Script" path="res://resources/Art/UI/ui.gd" id="4_y7wak"]
+[ext_resource type="Texture2D" uid="uid://chopu8pmrgfok" path="res://resources/Art/UI/UI_NPR_Style_001.png" id="5_i7q1i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arksv"]
 
