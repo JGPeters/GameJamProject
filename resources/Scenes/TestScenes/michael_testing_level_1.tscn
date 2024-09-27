@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqu6g5u05s3ev"]
+
+[ext_resource type="PackedScene" uid="uid://b3bcqmt2tiuxq" path="res://resources/Prefabs/Environment/TileMaps/michael_tile_map_testing_1.tscn" id="1_om2l7"]
+[ext_resource type="PackedScene" uid="uid://ohyewevipnp" path="res://resources/Prefabs/Gobbo.tscn" id="2_eswjc"]
+[ext_resource type="PackedScene" uid="uid://c5wmjacdlv1cr" path="res://resources/Scenes/ui.tscn" id="3_lu62f"]
+[ext_resource type="PackedScene" uid="uid://by33apo3fwwjt" path="res://resources/Prefabs/Characters/Enemies/slime_boi.tscn" id="4_fup8q"]
+
+[node name="Michael_Testing_Level_1" type="Node2D"]
+
+[node name="Michael_TileMapTesting_1" parent="." instance=ExtResource("1_om2l7")]
+
+[node name="Gobbo" parent="." instance=ExtResource("2_eswjc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_lu62f")]
+
+[node name="SlimeBoi" parent="." instance=ExtResource("4_fup8q")]
+position = Vector2(102, 76)

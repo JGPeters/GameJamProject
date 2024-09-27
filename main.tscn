@@ -6,6 +6,7 @@
 [node name="main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_d8aqr")]
+script = null
 
 [node name="rblock" parent="." instance=ExtResource("2_i27ag")]
 position = Vector2(136, 34)

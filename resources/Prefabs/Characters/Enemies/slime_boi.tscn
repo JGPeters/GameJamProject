@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://by33apo3fwwjt"]
+
+[ext_resource type="Texture2D" uid="uid://bnkbkbwj10486" path="res://resources/Art/Animations/Characters/SlimeBoi/SlimeGuy_01.png" id="1_052p2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l57yi"]
+radius = 7.0
+height = 16.0
+
+[node name="SlimeBoi" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_l57yi")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_052p2")
