@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://b56cfjs71wbvo"]
+[gd_scene load_steps=7 format=4 uid="uid://wyr27e2ma5lk"]
 
 [ext_resource type="Texture2D" uid="uid://bvxc5u1i00sev" path="res://resources/Art/Tilesets/Cave Tileset.png" id="1_suh2d"]
 [ext_resource type="Script" path="res://resources/Scripts/level_init.gd" id="2_56y15"]

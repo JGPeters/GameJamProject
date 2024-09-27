@@ -35,7 +35,7 @@ version_control/autoload_on_startup=true
 
 [gui]
 
-theme/custom_font="res://art/Fonts/MinimalPixelFont.ttf"
+theme/custom_font="res://resources/Art/Fonts/MinimalPixelFont.ttf"
 
 [input]
 
