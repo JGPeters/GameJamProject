@@ -13,10 +13,9 @@ func init(_param) -> void:
 				movement_node = comp
 		if comp is movement_attribute:
 			movement_attributes.append(component)
+		if comp != movement_node:
+				comp.init(null)
 	if !movement_node:
 		print("No movement component assigned to %s" % self)
 	else:
 		movement_node.init(movement_attributes)
-		for comp in get_children():
-			if comp != movement_node:
-				comp.init()

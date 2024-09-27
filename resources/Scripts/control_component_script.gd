@@ -8,8 +8,11 @@ class_name movement_component
 @export var controlled_entity : Node2D
 var movement_attributes : Array = []	
 
-func assign_attributes(_movement_attributes) -> void:
+func init(_movement_attributes) -> void:
 	movement_attributes = _movement_attributes
+	for attribute in _movement_attributes:
+		if attribute.get_type() == MovementAtributeType.Collision:
+			print("yay")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
