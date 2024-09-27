@@ -89,6 +89,7 @@ tile_set = SubResource("TileSet_4jh6c")
 script = ExtResource("2_56y15")
 
 [node name="Player" parent="." instance=ExtResource("2_bfel2")]
+position = Vector2(7, 9)
 
 [node name="Box" parent="." instance=ExtResource("3_5pw5s")]
-position = Vector2(41, 22)
+position = Vector2(42, 23)

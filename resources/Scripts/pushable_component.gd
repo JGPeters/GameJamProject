@@ -1,4 +1,4 @@
-extends Node2D
+extends component
 class_name  pushable_component
 
 @onready var tween : Tween = get_tree().create_tween()
@@ -27,8 +27,8 @@ func push(velocity: Vector2) -> void:
 		is_sliding = false
 	
 func calculate_destination(direction: Vector2) -> Vector2:
-	var tile_map_pos : Vector2 = tile_map.local_to_map(get_parent().get_node(".").position + direction)
-	return tile_map.map_to_local(tile_map_pos)
+	var tile_map_pos : Vector2 = tile_map.local_to_map(get_owner().to_local(get_owner().position) + direction)
+	return tile_map.to_global(tile_map.map_to_local(tile_map_pos))
 	
 func can_move(move_to: Vector2) -> bool:
 	var future_transform : = Transform2D(transform)

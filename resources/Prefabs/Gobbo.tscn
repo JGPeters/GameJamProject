@@ -176,10 +176,9 @@ script = ExtResource("5_wj4xv")
 [node name="Can Move Component" type="Node2D" parent="Component Tree"]
 script = ExtResource("6_g63d8")
 
-[node name="Control Component" type="Node2D" parent="Component Tree/Can Move Component" node_paths=PackedStringArray("controled_entity")]
+[node name="Control Component" type="Node2D" parent="Component Tree/Can Move Component" node_paths=PackedStringArray("controlled_entity")]
 script = ExtResource("7_6t6ta")
-speed = 40
-controled_entity = NodePath("../../..")
+controlled_entity = NodePath("../../..")
 
 [node name="Can Push Component" type="Node2D" parent="Component Tree/Can Move Component"]
 script = ExtResource("6_jttwk")

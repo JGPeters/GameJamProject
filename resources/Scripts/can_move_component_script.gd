@@ -2,9 +2,9 @@ extends component
 class_name can_move_component
 
 var movement_node : Node2D
-var movement_atributes : Array = []
+var movement_attributes : Array = []
 
-func init() -> void:
+func init(_param) -> void:
 	for comp in get_children():
 		if comp is movement_component:
 			if movement_node:
@@ -12,10 +12,11 @@ func init() -> void:
 			else:
 				movement_node = comp
 		if comp is movement_attribute:
-			movement_atributes.append(component)
+			movement_attributes.append(component)
 	if !movement_node:
 		print("No movement component assigned to %s" % self)
 	else:
-		movement_node.assign_atributes(movement_atributes)
+		movement_node.init(movement_attributes)
 		for comp in get_children():
-			comp.init()
+			if comp != movement_node:
+				comp.init()

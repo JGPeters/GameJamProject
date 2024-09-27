@@ -1,6 +1,6 @@
 extends Node2D
 class_name component
 
-func init() -> void:
+func init(_param) -> void:
 	for comp in get_children():
 		comp.init()
