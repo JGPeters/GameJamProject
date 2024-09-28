@@ -6,13 +6,14 @@ class_name movement_component
 @export var can_move = true
 
 @export var controlled_entity : Node2D
-var movement_attributes : Array = []	
+var movement_attributes_list : Array = []
 
-func init(_movement_attributes) -> void:
-	movement_attributes = _movement_attributes
+func init(_movement_attributes: Array) -> void:
+	movement_attributes_list = _movement_attributes
 	for attribute in _movement_attributes:
-		if attribute.get_type() == MovementAtributeType.Collision:
-			print("yay")
+		# Ensure the attribute is an instance of movement_attributes
+		if attribute is movement_attributes and attribute.get_type() == movement_attributes.MovementAtributeType.Collision:
+			print("Collision detected")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
