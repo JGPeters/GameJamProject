@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bugrc28xm8f2e"]
+[gd_scene load_steps=7 format=3 uid="uid://bugrc28xm8f2e"]
 
+[ext_resource type="Script" path="res://resources/Scripts/moveable_box.gd" id="1_kyqlu"]
 [ext_resource type="Texture2D" uid="uid://cmhbsgwj8d2iw" path="res://resources/Art/Pictures/Box.png" id="1_nav2e"]
-[ext_resource type="PackedScene" uid="uid://d11ao77chqsds" path="res://resources/Components/pushable_component.tscn" id="2_hv1tx"]
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/component_tree_script.gd" id="3_u8j08"]
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/interactable_component_script.gd" id="4_m3lc1"]
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/grabbable_component_script.gd" id="5_qtjdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbpox"]
 size = Vector2(16, 16)
 
 [node name="Box" type="CharacterBody2D"]
 position = Vector2(8, 8)
+script = ExtResource("1_kyqlu")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,4 +20,11 @@ shape = SubResource("RectangleShape2D_xbpox")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nav2e")
 
-[node name="Pushable Component" parent="." instance=ExtResource("2_hv1tx")]
+[node name="ComponentTree" type="Node" parent="."]
+script = ExtResource("3_u8j08")
+
+[node name="InteractableComponent" type="Node" parent="ComponentTree"]
+script = ExtResource("4_m3lc1")
+
+[node name="Grabbable Component" type="Node" parent="ComponentTree/InteractableComponent"]
+script = ExtResource("5_qtjdc")
