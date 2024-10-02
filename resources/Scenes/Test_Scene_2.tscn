@@ -19,3 +19,6 @@ position = Vector2(7, 9)
 
 [node name="Box" parent="EntityManager" instance=ExtResource("3_5pw5s")]
 position = Vector2(42, 23)
+
+[node name="Box2" parent="EntityManager" instance=ExtResource("3_5pw5s")]
+position = Vector2(68, 23)

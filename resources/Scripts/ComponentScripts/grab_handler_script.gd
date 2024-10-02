@@ -13,10 +13,8 @@ func _ready() -> void:
 
 func grab_or_release() -> void:
 	if !grabbing:
-		print("attempting grab")
 		attempt_grab()
 	else:
-		print("releasing grab")
 		release_grab()
 
 func check_grab(facing_dir : Vector2) -> Object:
@@ -35,7 +33,6 @@ func check_grab(facing_dir : Vector2) -> Object:
 		return null
 
 func grab(object : Object):
-	print("grabbing")
 	grabbing = true
 	var fdir : Vector2 = get_owner().get_last_facing_dir().normalized()
 	var heavy : bool = false
@@ -60,7 +57,6 @@ func attempt_grab() -> void:
 		if object:
 			grab(object)
 		else:
-			print("grab failed")
 			grab_failed.emit()
 
 func release_grab() -> void:

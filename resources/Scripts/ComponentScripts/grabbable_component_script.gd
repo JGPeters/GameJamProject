@@ -5,7 +5,7 @@ func _ready() -> void:
 	SignalBus.something_grabbed_a_thing.connect(on_something_grabbed_a_thing)
 
 func on_something_grabbed_a_thing(grabber : Node, thing_grabbed : Object) -> void:
-	print("thing grabbed")
+
 	#if thing_grabbed == self:
 	print(grabber)
 	self.reparent(get_node("../Gobbo"), false)

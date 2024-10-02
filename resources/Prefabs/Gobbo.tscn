@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://ohyewevipnp"]
+[gd_scene load_steps=35 format=3 uid="uid://ohyewevipnp"]
 
 [ext_resource type="Script" path="res://resources/Scripts/player_movement.gd" id="1_5o20t"]
 [ext_resource type="Texture2D" uid="uid://wu6mgmv7e73c" path="res://resources/Art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png" id="2_7ca2x"]
 [ext_resource type="AnimationLibrary" uid="uid://c66bkhvyiynbw" path="res://resources/Animations/Player.res" id="3_bm2fv"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/component_tree_script.gd" id="5_wj4xv"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/can_move_component_script.gd" id="6_g63d8"]
-[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/can_push_component_script.gd" id="6_jttwk"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_component_script.gd" id="7_6t6ta"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_move_state_component_script.gd" id="8_woa6o"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/grab_handler_script.gd" id="9_7htrx"]
@@ -147,7 +146,6 @@ position = Vector2(0, -0.5)
 shape = SubResource("CapsuleShape2D_iehrl")
 
 [node name="Player" type="Sprite2D" parent="."]
-texture_filter = 1
 texture = ExtResource("2_7ca2x")
 hframes = 7
 vframes = 7
@@ -188,9 +186,6 @@ script = ExtResource("9_7htrx")
 
 [node name="GrabRayCast" type="RayCast2D" parent="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler"]
 collide_with_areas = true
-
-[node name="CanPushComponent" type="Node" parent="ComponentTree/CanMoveComponent"]
-script = ExtResource("6_jttwk")
 
 [node name="AnimatorControllerComponent" type="Node" parent="ComponentTree/CanMoveComponent" node_paths=PackedStringArray("animation_tree", "actor")]
 script = ExtResource("10_jf36l")
