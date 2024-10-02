@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://resources/Scripts/Characters/Enemies/slime_boi_behavior.gd" id="1_7a5u3"]
 [ext_resource type="Texture2D" uid="uid://bnkbkbwj10486" path="res://resources/Art/Animations/Characters/SlimeBoi/SlimeGuy_01.png" id="1_052p2"]
-[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/velocity_component.gd" id="3_drxge"]
-[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/pathfind_component.gd" id="4_7w0ia"]
+[ext_resource type="Script" path="res://resources/Scripts/Components/velocity_component.gd" id="3_drxge"]
+[ext_resource type="Script" path="res://resources/Scripts/Components/pathfind_component.gd" id="4_7w0ia"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l57yi"]
 radius = 7.0
@@ -30,11 +30,10 @@ max_speed = 62.72
 acceleration_coefficient = 8.255
 debug_mode = true
 
-[node name="pathfind_component" type="Node2D" parent="." node_paths=PackedStringArray("velocity_comp", "root_node")]
+[node name="pathfind_component" type="Node2D" parent="." node_paths=PackedStringArray("velocity_comp")]
 script = ExtResource("4_7w0ia")
 velocity_comp = NodePath("../velocity_component")
 debug_draw_enabled = true
-root_node = NodePath("..")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="pathfind_component"]
 avoidance_enabled = true

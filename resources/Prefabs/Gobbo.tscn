@@ -136,7 +136,7 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_3wqg7")
 states/Walk/position = Vector2(439, 96)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7gi3v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ib3ng"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k01o1")]
 
-[node name="Gobbo" type="CharacterBody2D"]
+[node name="Gobbo" type="CharacterBody2D" groups=["player"]]
 slide_on_ceiling = false
 script = ExtResource("1_5o20t")
 metadata/_edit_group_ = true
@@ -193,6 +193,3 @@ animation_tree = NodePath("../../../AnimationTree")
 actor = NodePath("../../..")
 
 [connection signal="state_changed" from="ComponentTree/CanMoveComponent/MovementStateMachine" to="ComponentTree/CanMoveComponent/AnimatorControllerComponent" method="_on_movement_state_machine_state_changed"]
-[connection signal="grab_failed" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_grab_failed"]
-[connection signal="grabbed_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_grabbed_object"]
-[connection signal="released_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_released_object"]
