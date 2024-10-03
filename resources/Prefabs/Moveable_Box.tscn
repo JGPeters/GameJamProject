@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bugrc28xm8f2e"]
+[gd_scene load_steps=8 format=3 uid="uid://bugrc28xm8f2e"]
 
 [ext_resource type="Script" path="res://resources/Scripts/moveable_box.gd" id="1_kyqlu"]
 [ext_resource type="Texture2D" uid="uid://cmhbsgwj8d2iw" path="res://resources/Art/Pictures/Box.png" id="1_nav2e"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/component_tree_script.gd" id="3_u8j08"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/interactable_component_script.gd" id="4_m3lc1"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/grabbable_component_script.gd" id="5_qtjdc"]
+[ext_resource type="PackedScene" uid="uid://bhg60u0s7fow7" path="res://resources/Components/weighs_down_buttons_component.tscn" id="6_dhnqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbpox"]
 size = Vector2(16, 16)
@@ -28,3 +29,7 @@ script = ExtResource("4_m3lc1")
 
 [node name="Grabbable Component" type="Node" parent="ComponentTree/InteractableComponent"]
 script = ExtResource("5_qtjdc")
+
+[node name="AttributeHandler" type="Node" parent="ComponentTree"]
+
+[node name="WeighsDownButtons" parent="ComponentTree/AttributeHandler" instance=ExtResource("6_dhnqw")]

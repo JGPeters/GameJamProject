@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxu1mh4oca680"]
+
+[ext_resource type="Texture2D" uid="uid://cclc7jbc6ltvg" path="res://resources/Art/Pictures/Cave Button.png" id="1_44xtp"]
+[ext_resource type="Script" path="res://resources/Scripts/cave_button_script.gd" id="1_gon1a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wypbx"]
+
+[node name="Button" type="Area2D"]
+position = Vector2(11, 11)
+script = ExtResource("1_gon1a")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_44xtp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.719999, 0.72)
+shape = SubResource("CircleShape2D_wypbx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

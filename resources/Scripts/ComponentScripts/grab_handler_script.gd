@@ -36,7 +36,7 @@ func grab(object : Object):
 	grabbing = true
 	var fdir : Vector2 = get_owner().get_last_facing_dir().normalized()
 	var heavy : bool = false
-	if object.get_meta("Heavy"):
+	if object.get_meta("Heavy", false):
 		heavy = true
 	object_that_is_grabbed = object
 	grabbed_object.emit({"x": fdir.x, "y": fdir.y, "Heavy": heavy})

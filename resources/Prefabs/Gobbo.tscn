@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ohyewevipnp"]
+[gd_scene load_steps=37 format=3 uid="uid://ohyewevipnp"]
 
 [ext_resource type="Script" path="res://resources/Scripts/player_movement.gd" id="1_5o20t"]
 [ext_resource type="Texture2D" uid="uid://wu6mgmv7e73c" path="res://resources/Art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png" id="2_7ca2x"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_component_script.gd" id="7_6t6ta"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_move_state_component_script.gd" id="8_woa6o"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/grab_handler_script.gd" id="9_7htrx"]
+[ext_resource type="PackedScene" uid="uid://bhg60u0s7fow7" path="res://resources/Components/weighs_down_buttons_component.tscn" id="10_0inj6"]
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/attribute_handler_script.gd" id="10_1fn7b"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/animator_controller_component_script.gd" id="10_jf36l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iehrl"]
@@ -191,6 +193,11 @@ collide_with_areas = true
 script = ExtResource("10_jf36l")
 animation_tree = NodePath("../../../AnimationTree")
 actor = NodePath("../../..")
+
+[node name="AttributeHandler" type="Node" parent="ComponentTree"]
+script = ExtResource("10_1fn7b")
+
+[node name="WeighsDownButtons" parent="ComponentTree/AttributeHandler" instance=ExtResource("10_0inj6")]
 
 [connection signal="state_changed" from="ComponentTree/CanMoveComponent/MovementStateMachine" to="ComponentTree/CanMoveComponent/AnimatorControllerComponent" method="_on_movement_state_machine_state_changed"]
 [connection signal="grab_failed" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_grab_failed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://b56cfjs71wbvo"]
+[gd_scene load_steps=6 format=4 uid="uid://b56cfjs71wbvo"]
 
 [ext_resource type="TileSet" uid="uid://bbu2wsatpqtvi" path="res://resources/Art/Tilesets/Cave_Tileset.tres" id="1_vione"]
 [ext_resource type="PackedScene" uid="uid://ohyewevipnp" path="res://resources/Prefabs/Gobbo.tscn" id="2_bfel2"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/entity_manager_script.gd" id="2_cvrab"]
 [ext_resource type="PackedScene" uid="uid://bugrc28xm8f2e" path="res://resources/Prefabs/Moveable_Box.tscn" id="3_5pw5s"]
+[ext_resource type="PackedScene" uid="uid://bxu1mh4oca680" path="res://resources/Prefabs/Cave_Button.tscn" id="5_ejexl"]
 
 [node name="level" type="Camera2D"]
 
@@ -13,6 +14,9 @@ tile_set = ExtResource("1_vione")
 
 [node name="EntityManager" type="Node" parent="."]
 script = ExtResource("2_cvrab")
+
+[node name="Button" parent="EntityManager" instance=ExtResource("5_ejexl")]
+position = Vector2(21, 46)
 
 [node name="Gobbo" parent="EntityManager" instance=ExtResource("2_bfel2")]
 position = Vector2(7, 9)

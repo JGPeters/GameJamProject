@@ -1,7 +1,5 @@
 extends Node
 
-class_name movement_attributes
-
 enum MovementAtributeType {
 	Collision,
 	#SpeedBoost,

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhg60u0s7fow7"]
+
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/weighs_down_buttons_script.gd" id="1_d3ql1"]
+
+[node name="WeighsDownButtons" type="Node"]
+script = ExtResource("1_d3ql1")
