@@ -35,11 +35,18 @@ script = ExtResource("4_y7wak")
 
 [node name="StartMenu_NPR" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = -7.0
-offset_top = -11.0
-offset_right = 321.0
-offset_bottom = 174.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -92.5
+offset_right = 164.0
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("5_i7q1i")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 9
