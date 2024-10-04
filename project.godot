@@ -23,6 +23,7 @@ CollisionAttributeBaseScript="*res://resources/Scripts/AutoLoads/collision_attri
 SignalBusScript="*res://resources/Scripts/AutoLoads/signal_bus_script.gd"
 SignalBus="*res://resources/Scripts/AutoLoads/signal_bus.tscn"
 Enums="*res://resources/Scripts/AutoLoads/Enums.gd"
+ComponentBaseScript="*res://resources/Scripts/AutoLoads/component_base_script.gd"
 
 [display]
 

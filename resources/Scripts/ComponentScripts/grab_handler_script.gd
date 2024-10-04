@@ -34,7 +34,8 @@ func check_grab(facing_dir : Vector2) -> Object:
 
 func grab(object : Object):
 	grabbing = true
-	var fdir : Vector2 = get_owner().get_last_facing_dir().normalized()
+	get_owner().set_grabbing(true)
+	var fdir : Vector2 = get_owner().get_facing_dir().normalized()
 	var heavy : bool = false
 	if object.get_meta("Heavy", false):
 		heavy = true
@@ -43,7 +44,7 @@ func grab(object : Object):
 	SignalBus.something_grabbed_a_thing.emit(get_owner(), object)
 
 func check_angle() -> Vector2:
-	var fdir : Vector2 = get_owner().get_last_facing_dir().normalized()
+	var fdir : Vector2 = get_owner().get_facing_dir().normalized()
 	var valid_angles : Array[Vector2] = [Vector2(0, 1), Vector2(1, 0), Vector2(-1, 0), Vector2(0, -1)]
 	if fdir in valid_angles:
 		return fdir
@@ -61,6 +62,7 @@ func attempt_grab() -> void:
 
 func release_grab() -> void:
 	grabbing = false
+	get_owner().set_grabbing(false)
 	$GrabRayCast.enabled = false
 	released_object.emit()
 	SignalBus.something_released_a_thing.emit(get_owner(), object_that_is_grabbed)

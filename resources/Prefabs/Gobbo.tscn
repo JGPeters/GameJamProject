@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://ohyewevipnp"]
+[gd_scene load_steps=43 format=3 uid="uid://ohyewevipnp"]
 
 [ext_resource type="Script" path="res://resources/Scripts/player_movement.gd" id="1_5o20t"]
 [ext_resource type="Texture2D" uid="uid://wu6mgmv7e73c" path="res://resources/Art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png" id="2_7ca2x"]
 [ext_resource type="AnimationLibrary" uid="uid://c66bkhvyiynbw" path="res://resources/Animations/Player.res" id="3_bm2fv"]
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://cpg1vritmuubu" path="res://resources/Animations/push_blend_space_2d.tres" id="4_0ebha"]
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://crs6ocoqxbmsk" path="res://resources/Animations/pull_blend_space_2d.tres" id="5_fntbx"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/component_tree_script.gd" id="5_wj4xv"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/can_move_component_script.gd" id="6_g63d8"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_component_script.gd" id="7_6t6ta"]
@@ -35,6 +37,12 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_iradj")
 }
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_78ivv"]
+blend_point_0/node = ExtResource("4_0ebha")
+blend_point_0/pos = 1.0
+blend_point_1/node = ExtResource("5_fntbx")
+blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fl4x"]
 animation = &"Player/Idle_Back"
@@ -79,16 +87,16 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_r2v1v")
 blend_point_7/pos = Vector2(0.5, 0.5)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jeiju"]
-animation = &"Player/Walking Backwards"
+animation = &"Player/Walk_Back"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xprl8"]
-animation = &"Player/Walking Forward"
+animation = &"Player/Walk_Front"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nmf7o"]
-animation = &"Player/Walking Left"
+animation = &"Player/Walk_Left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gewr5"]
-animation = &"Player/Walking Right"
+animation = &"Player/Walk_Right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x5f4c"]
 animation = &"Player/Walk_Back_Right"
@@ -131,14 +139,31 @@ advance_expression = "velocity"
 advance_mode = 2
 advance_expression = "!velocity"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_atgyu"]
+advance_mode = 2
+advance_expression = "grabbing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u7cd5"]
+advance_mode = 2
+advance_expression = "grabbing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c3hem"]
+advance_mode = 2
+advance_expression = "!grabbing"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jv45e"]
+states/Grab/node = SubResource("AnimationNodeBlendSpace1D_78ivv")
+states/Grab/position = Vector2(548, 184)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_svx1c")
-states/Idle/position = Vector2(432, 180)
+states/Idle/position = Vector2(418, 184)
+states/Start/position = Vector2(287, 184)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_3wqg7")
-states/Walk/position = Vector2(439, 96)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7gi3v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ib3ng"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k01o1")]
+states/Walk/position = Vector2(418, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7gi3v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ib3ng"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k01o1"), "Walk", "Grab", SubResource("AnimationNodeStateMachineTransition_atgyu"), "Idle", "Grab", SubResource("AnimationNodeStateMachineTransition_u7cd5"), "Grab", "Idle", SubResource("AnimationNodeStateMachineTransition_c3hem")]
+graph_offset = Vector2(9, 31)
 
 [node name="Gobbo" type="CharacterBody2D" groups=["player"]]
+position = Vector2(22, 3)
 slide_on_ceiling = false
 script = ExtResource("1_5o20t")
 metadata/_edit_group_ = true
@@ -149,7 +174,7 @@ shape = SubResource("CapsuleShape2D_iehrl")
 
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("2_7ca2x")
-hframes = 7
+hframes = 8
 vframes = 7
 frame = 6
 
@@ -158,16 +183,17 @@ libraries = {
 "": SubResource("AnimationLibrary_aj01e"),
 "Player": ExtResource("3_bm2fv")
 }
-autoplay = "Player/Walking Right"
+autoplay = "Player/Walk_Right"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_jv45e")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Grab/blend_position = 0
+parameters/Grab/0/blend_position = Vector2(0, 0)
+parameters/Grab/1/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(-0.299475, 0.329787)
 parameters/Walk/blend_position = Vector2(-0.504378, 0.531915)
-
-[node name="Node2D" type="Camera2D" parent="."]
 
 [node name="ComponentTree" type="Node" parent="."]
 script = ExtResource("5_wj4xv")
@@ -200,3 +226,5 @@ script = ExtResource("10_1fn7b")
 [node name="WeighsDownButtons" parent="ComponentTree/AttributeHandler" instance=ExtResource("10_0inj6")]
 
 [connection signal="state_changed" from="ComponentTree/CanMoveComponent/MovementStateMachine" to="ComponentTree/CanMoveComponent/AnimatorControllerComponent" method="_on_movement_state_machine_state_changed"]
+[connection signal="grabbed_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_grabbed_object"]
+[connection signal="released_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_released_object"]

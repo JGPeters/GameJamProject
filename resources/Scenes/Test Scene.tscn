@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://de6535myn05fs"]
 
-[ext_resource type="TileSet" uid="uid://dx2ftlyg1ix23" path="res://resources/Art/Tilesets/Cave_Tileset.tres" id="1_bj1rx"]
+[ext_resource type="TileSet" uid="uid://bbu2wsatpqtvi" path="res://resources/Art/Tilesets/Cave_Tileset.tres" id="1_bj1rx"]
 [ext_resource type="PackedScene" uid="uid://ohyewevipnp" path="res://resources/Prefabs/Gobbo.tscn" id="2_ljsmj"]
 
 [node name="Node2D" type="TileMapLayer"]

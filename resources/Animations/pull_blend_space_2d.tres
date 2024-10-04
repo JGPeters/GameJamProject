@@ -1,0 +1,24 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=5 format=3 uid="uid://crs6ocoqxbmsk"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gfqh1"]
+animation = &"Player/Push_Front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrmfr"]
+animation = &"Player/Pull_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvn3w"]
+animation = &"Player/Pull_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h6qtw"]
+animation = &"Player/Push_Back"
+
+[resource]
+resource_name = "Pull"
+blend_point_0/node = SubResource("AnimationNodeAnimation_gfqh1")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_yrmfr")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_jvn3w")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_h6qtw")
+blend_point_3/pos = Vector2(0, -1)

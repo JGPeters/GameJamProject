@@ -19,7 +19,7 @@ func set_can_movexy(bools : Array[bool]):
 func _ready() -> void:
 	normal_speed = speed
 	set_physics_process(false)
-	animations = ["Walk", "Idle"]
+	animations = ["Walk", "Idle", "Grab", "Grab/0", "Grab/1"]
 
 func enter_state() -> void:
 	set_physics_process(true)
@@ -47,11 +47,12 @@ func _physics_process(delta: float) -> void:
 		input_dir.y -= 1
 		
 	actor.velocity = Vector2.ZERO
-	if input_dir.length() > 0:
+	if input_dir != Vector2.ZERO:
 		actor.velocity = input_dir.normalized() * speed
-		#not grabbing, do that
-		actor.set_last_facing_dir(actor.velocity)
-		
+		actor.set_last_movement_dir(input_dir.normalized())
+		if !grabbing_object:
+			actor.set_facing_dir(input_dir.normalized())
+
 	actor.move_and_slide()
 	
 
