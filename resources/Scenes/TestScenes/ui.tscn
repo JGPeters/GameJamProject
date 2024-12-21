@@ -1,19 +1,19 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0p2a0yj1k8j"]
 
-[ext_resource type="StyleBox" uid="uid://cwbbyeixrpwtv" path="res://resources/Art/Themes_Stylebox/hover_button.tres" id="1_6a5q2"]
-[ext_resource type="StyleBox" uid="uid://b1kyygc5ctmys" path="res://resources/Art/Themes_Stylebox/normal_button.tres" id="2_tka1l"]
-[ext_resource type="StyleBox" uid="uid://dvttt4w02sxe1" path="res://resources/Art/Themes_Stylebox/Pressed_button.tres" id="3_f01xu"]
-[ext_resource type="Script" path="res://resources/Art/UI/ui.gd" id="4_y7wak"]
-[ext_resource type="Texture2D" uid="uid://chopu8pmrgfok" path="res://resources/Art/UI/UI_NPR_Style_001.png" id="5_i7q1i"]
+[ext_resource type="StyleBox" uid="uid://cwbbyeixrpwtv" path="res://resources/Art/Themes_Stylebox/hover_button.tres" id="1_ffi8q"]
+[ext_resource type="StyleBox" uid="uid://b1kyygc5ctmys" path="res://resources/Art/Themes_Stylebox/normal_button.tres" id="2_ocmgd"]
+[ext_resource type="StyleBox" uid="uid://dvttt4w02sxe1" path="res://resources/Art/Themes_Stylebox/Pressed_button.tres" id="3_x2mie"]
+[ext_resource type="Script" path="res://resources/Art/UI/ui.gd" id="4_o185c"]
+[ext_resource type="Texture2D" uid="uid://chopu8pmrgfok" path="res://resources/Art/UI/UI_NPR_Style_001.png" id="5_bjje7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_arksv"]
 
 [sub_resource type="Theme" id="Theme_ultgc"]
 Button/font_sizes/font_size = 16
 Button/styles/focus = SubResource("StyleBoxEmpty_arksv")
-Button/styles/hover = ExtResource("1_6a5q2")
-Button/styles/normal = ExtResource("2_tka1l")
-Button/styles/pressed = ExtResource("3_f01xu")
+Button/styles/hover = ExtResource("1_ffi8q")
+Button/styles/normal = ExtResource("2_ocmgd")
+Button/styles/pressed = ExtResource("3_x2mie")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -31,7 +31,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_ultgc")
-script = ExtResource("4_y7wak")
+script = ExtResource("4_o185c")
 
 [node name="StartMenu_NPR" type="NinePatchRect" parent="."]
 texture_filter = 1
@@ -40,7 +40,7 @@ offset_left = -7.0
 offset_top = -11.0
 offset_right = 321.0
 offset_bottom = 174.0
-texture = ExtResource("5_i7q1i")
+texture = ExtResource("5_bjje7")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 9
 patch_margin_top = 9
