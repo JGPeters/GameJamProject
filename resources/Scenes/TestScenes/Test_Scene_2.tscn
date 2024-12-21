@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://b56cfjs71wbvo"]
+[gd_scene load_steps=7 format=4 uid="uid://b56cfjs71wbvo"]
 
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/tile_map_layer_manager_component.gd" id="1_qyg6c"]
 [ext_resource type="TileSet" uid="uid://bbu2wsatpqtvi" path="res://resources/Art/Tilesets/Cave_Tileset.tres" id="1_vione"]
 [ext_resource type="PackedScene" uid="uid://ohyewevipnp" path="res://resources/Prefabs/Gobbo.tscn" id="2_bfel2"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/entity_manager_script.gd" id="2_cvrab"]
@@ -8,7 +9,10 @@
 
 [node name="level" type="Camera2D"]
 
-[node name="TileMap" type="TileMapLayer" parent="."]
+[node name="TileMapLayerManager" type="Node" parent="."]
+script = ExtResource("1_qyg6c")
+
+[node name="TileMap" type="TileMapLayer" parent="TileMapLayerManager"]
 tile_map_data = PackedByteArray("AAD/////AAABAAIAAAD//wAAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAABAAEAAAABAAIAAAABAAIAAAABAAIAAAACAAIAAAABAAIAAAADAAIAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAA=")
 tile_set = ExtResource("1_vione")
 
@@ -23,7 +27,7 @@ position = Vector2(7, 9)
 collision_layer = 0
 
 [node name="Box" parent="EntityManager" instance=ExtResource("3_5pw5s")]
-position = Vector2(42, 23)
+position = Vector2(31, 7)
 
 [node name="Box2" parent="EntityManager" instance=ExtResource("3_5pw5s")]
-position = Vector2(68, 23)
+position = Vector2(49, 18)

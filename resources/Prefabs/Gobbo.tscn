@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ohyewevipnp"]
+[gd_scene load_steps=54 format=3 uid="uid://ohyewevipnp"]
 
 [ext_resource type="Script" path="res://resources/Scripts/player_movement.gd" id="1_5o20t"]
 [ext_resource type="Texture2D" uid="uid://wu6mgmv7e73c" path="res://resources/Art/Animations/Characters/Goblin Dude/Goblin Dude Master-Sheet.png" id="2_7ca2x"]
@@ -6,10 +6,10 @@
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://cpg1vritmuubu" path="res://resources/Animations/push_blend_space_2d.tres" id="4_0ebha"]
 [ext_resource type="AnimationNodeBlendSpace2D" uid="uid://crs6ocoqxbmsk" path="res://resources/Animations/pull_blend_space_2d.tres" id="5_fntbx"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/component_tree_script.gd" id="5_wj4xv"]
-[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/can_move_component_script.gd" id="6_g63d8"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_component_script.gd" id="7_6t6ta"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_move_state_component_script.gd" id="8_woa6o"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/grab_handler_script.gd" id="9_7htrx"]
+[ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/control_handler_component_script.gd" id="9_xpgkn"]
 [ext_resource type="PackedScene" uid="uid://bhg60u0s7fow7" path="res://resources/Components/weighs_down_buttons_component.tscn" id="10_0inj6"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/attribute_handler_script.gd" id="10_1fn7b"]
 [ext_resource type="Script" path="res://resources/Scripts/ComponentScripts/animator_controller_component_script.gd" id="10_jf36l"]
@@ -20,6 +20,7 @@ height = 15.0
 
 [sub_resource type="Animation" id="Animation_iradj"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,23 +33,87 @@ tracks/0/keys = {
 "update": 1,
 "values": [6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aj01e"]
 _data = {
 "RESET": SubResource("Animation_iradj")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7q2b5"]
+animation = &"Player/Idle_Push_Front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dh24j"]
+animation = &"Player/Idle_Push_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2aw16"]
+animation = &"Player/Idle_Push_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bnsff"]
+animation = &"Player/Idle_Push_Back"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_nwk5h"]
+resource_name = "Idle/push"
+blend_point_0/node = SubResource("AnimationNodeAnimation_7q2b5")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_dh24j")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_2aw16")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_bnsff")
+blend_point_3/pos = Vector2(0, -1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6rmds"]
+animation = &"Player/Idle_Push_Front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bx3wh"]
+animation = &"Player/Idle_Push_Back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2qipa"]
+animation = &"Player/Idle_Pull_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yjkmv"]
+animation = &"Player/Idle_Pull_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_81y33"]
+resource_name = "Idle/pull"
+blend_point_0/node = SubResource("AnimationNodeAnimation_6rmds")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_bx3wh")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_2qipa")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_yjkmv")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_y3ig6"]
+resource_name = "Idle"
+blend_point_0/node = SubResource("AnimationNodeBlendSpace2D_nwk5h")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeBlendSpace2D_81y33")
+blend_point_1/pos = -1.0
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_78ivv"]
 blend_point_0/node = ExtResource("4_0ebha")
 blend_point_0/pos = 1.0
 blend_point_1/node = ExtResource("5_fntbx")
 blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeBlendSpace1D_y3ig6")
+blend_point_2/pos = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fl4x"]
 animation = &"Player/Idle_Back"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u8do8"]
-animation = &"Player/Idle_Front"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_llrwi"]
 animation = &"Player/Idle_Right"
@@ -68,23 +133,26 @@ animation = &"Player/Idle_Back_Right"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r2v1v"]
 animation = &"Player/Idle_Front_Right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tnwde"]
+animation = &"Player/Idle_Front"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_svx1c"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_3fl4x")
 blend_point_0/pos = Vector2(0, -1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_u8do8")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_llrwi")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_v031n")
-blend_point_3/pos = Vector2(-1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_3i22q")
-blend_point_4/pos = Vector2(-0.5, -0.5)
-blend_point_5/node = SubResource("AnimationNodeAnimation_mrimd")
-blend_point_5/pos = Vector2(-0.5, 0.5)
-blend_point_6/node = SubResource("AnimationNodeAnimation_aknl5")
-blend_point_6/pos = Vector2(0.5, -0.5)
-blend_point_7/node = SubResource("AnimationNodeAnimation_r2v1v")
-blend_point_7/pos = Vector2(0.5, 0.5)
+blend_point_1/node = SubResource("AnimationNodeAnimation_llrwi")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_v031n")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3i22q")
+blend_point_3/pos = Vector2(-0.5, -0.5)
+blend_point_4/node = SubResource("AnimationNodeAnimation_mrimd")
+blend_point_4/pos = Vector2(-0.5, 0.5)
+blend_point_5/node = SubResource("AnimationNodeAnimation_aknl5")
+blend_point_5/pos = Vector2(0.5, -0.5)
+blend_point_6/node = SubResource("AnimationNodeAnimation_r2v1v")
+blend_point_6/pos = Vector2(0.5, 0.5)
+blend_point_7/node = SubResource("AnimationNodeAnimation_tnwde")
+blend_point_7/pos = Vector2(0, 1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jeiju"]
 animation = &"Player/Walk_Back"
@@ -135,10 +203,6 @@ advance_mode = 2
 advance_mode = 2
 advance_expression = "velocity"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k01o1"]
-advance_mode = 2
-advance_expression = "!velocity"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_atgyu"]
 advance_mode = 2
 advance_expression = "grabbing"
@@ -151,15 +215,19 @@ advance_expression = "grabbing"
 advance_mode = 2
 advance_expression = "!grabbing"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pueil"]
+advance_mode = 2
+advance_expression = "!velocity"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jv45e"]
 states/Grab/node = SubResource("AnimationNodeBlendSpace1D_78ivv")
-states/Grab/position = Vector2(548, 184)
+states/Grab/position = Vector2(554, 184)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_svx1c")
 states/Idle/position = Vector2(418, 184)
 states/Start/position = Vector2(287, 184)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_3wqg7")
 states/Walk/position = Vector2(418, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7gi3v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ib3ng"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_k01o1"), "Walk", "Grab", SubResource("AnimationNodeStateMachineTransition_atgyu"), "Idle", "Grab", SubResource("AnimationNodeStateMachineTransition_u7cd5"), "Grab", "Idle", SubResource("AnimationNodeStateMachineTransition_c3hem")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7gi3v"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ib3ng"), "Walk", "Grab", SubResource("AnimationNodeStateMachineTransition_atgyu"), "Idle", "Grab", SubResource("AnimationNodeStateMachineTransition_u7cd5"), "Grab", "Idle", SubResource("AnimationNodeStateMachineTransition_c3hem"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_pueil")]
 graph_offset = Vector2(9, 31)
 
 [node name="Gobbo" type="CharacterBody2D" groups=["player"]]
@@ -174,8 +242,8 @@ shape = SubResource("CapsuleShape2D_iehrl")
 
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("2_7ca2x")
-hframes = 8
-vframes = 7
+hframes = 7
+vframes = 6
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -183,7 +251,6 @@ libraries = {
 "": SubResource("AnimationLibrary_aj01e"),
 "Player": ExtResource("3_bm2fv")
 }
-autoplay = "Player/Walk_Right"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_jv45e")
@@ -192,39 +259,51 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Grab/blend_position = 0
 parameters/Grab/0/blend_position = Vector2(0, 0)
 parameters/Grab/1/blend_position = Vector2(0, 0)
-parameters/Idle/blend_position = Vector2(-0.299475, 0.329787)
-parameters/Walk/blend_position = Vector2(-0.504378, 0.531915)
+parameters/Grab/2/blend_position = 0
+parameters/Grab/2/0/blend_position = Vector2(0, 0)
+parameters/Grab/2/1/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(-0.148862, -0.0530974)
+parameters/Walk/blend_position = Vector2(0.994746, -0.0265486)
 
-[node name="ComponentTree" type="Node" parent="."]
+[node name="ComponentTree" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("5_wj4xv")
+actor = NodePath("..")
 
-[node name="CanMoveComponent" type="Node" parent="ComponentTree"]
-script = ExtResource("6_g63d8")
-
-[node name="MovementStateMachine" type="Node" parent="ComponentTree/CanMoveComponent" node_paths=PackedStringArray("start_state")]
+[node name="MovementStateMachine" type="Node" parent="ComponentTree" node_paths=PackedStringArray("component_tree", "start_state", "grab_state")]
 script = ExtResource("7_6t6ta")
-start_state = NodePath("ControlMoveStateComponent")
+component_tree = NodePath("..")
+start_state = NodePath("ControlHandler/ControlMoveStateComponent")
+grab_state = NodePath("ControlHandler/GrabStateComponent")
 
-[node name="ControlMoveStateComponent" type="Node" parent="ComponentTree/CanMoveComponent/MovementStateMachine" node_paths=PackedStringArray("actor")]
-script = ExtResource("8_woa6o")
-actor = NodePath("../../../..")
-
-[node name="GrabHandler" type="Node" parent="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent"]
-script = ExtResource("9_7htrx")
-
-[node name="GrabRayCast" type="RayCast2D" parent="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler"]
+[node name="InteractTypeChecker" type="RayCast2D" parent="ComponentTree/MovementStateMachine"]
+target_position = Vector2(50, 50)
 collide_with_areas = true
 
-[node name="AnimatorControllerComponent" type="Node" parent="ComponentTree/CanMoveComponent" node_paths=PackedStringArray("animation_tree", "actor")]
-script = ExtResource("10_jf36l")
-animation_tree = NodePath("../../../AnimationTree")
-actor = NodePath("../../..")
+[node name="ControlHandler" type="Node" parent="ComponentTree/MovementStateMachine" node_paths=PackedStringArray("component_tree")]
+script = ExtResource("9_xpgkn")
+component_tree = NodePath("../..")
+
+[node name="ControlMoveStateComponent" type="Node" parent="ComponentTree/MovementStateMachine/ControlHandler" node_paths=PackedStringArray("component_tree")]
+script = ExtResource("8_woa6o")
+component_tree = NodePath("../../..")
+
+[node name="GrabStateComponent" type="Node" parent="ComponentTree/MovementStateMachine/ControlHandler" node_paths=PackedStringArray("component_tree")]
+script = ExtResource("9_7htrx")
+component_tree = NodePath("../../..")
+
+[node name="GrabRayCast" type="RayCast2D" parent="ComponentTree/MovementStateMachine/ControlHandler/GrabStateComponent"]
+collide_with_areas = true
 
 [node name="AttributeHandler" type="Node" parent="ComponentTree"]
 script = ExtResource("10_1fn7b")
 
 [node name="WeighsDownButtons" parent="ComponentTree/AttributeHandler" instance=ExtResource("10_0inj6")]
 
-[connection signal="state_changed" from="ComponentTree/CanMoveComponent/MovementStateMachine" to="ComponentTree/CanMoveComponent/AnimatorControllerComponent" method="_on_movement_state_machine_state_changed"]
-[connection signal="grabbed_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_grabbed_object"]
-[connection signal="released_object" from="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent/GrabHandler" to="ComponentTree/CanMoveComponent/MovementStateMachine/ControlMoveStateComponent" method="_on_released_object"]
+[node name="AnimatorControllerComponent" type="Node" parent="ComponentTree" node_paths=PackedStringArray("animation_tree", "actor")]
+script = ExtResource("10_jf36l")
+animation_tree = NodePath("../../AnimationTree")
+actor = NodePath("../..")
+
+[connection signal="state_changed" from="ComponentTree/MovementStateMachine" to="ComponentTree/AnimatorControllerComponent" method="_on_movement_state_changed"]
+[connection signal="Interact" from="ComponentTree/MovementStateMachine/ControlHandler" to="ComponentTree/MovementStateMachine" method="_on_interact"]
+[connection signal="grab_failed" from="ComponentTree/MovementStateMachine/ControlHandler/GrabStateComponent" to="ComponentTree/MovementStateMachine" method="_on_grab_failed"]

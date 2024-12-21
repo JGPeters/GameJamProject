@@ -11,11 +11,11 @@
 size = Vector2(16, 16)
 
 [node name="Box" type="CharacterBody2D"]
-position = Vector2(8, 8)
 script = ExtResource("1_kyqlu")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.99, 0.99)
 shape = SubResource("RectangleShape2D_xbpox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

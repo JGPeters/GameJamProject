@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 MovementAttributeBaseScript="*res://resources/Scripts/AutoLoads/movement_attribute_base_script.gd"
-MovementComponentBaseScript="*res://resources/Scripts/AutoLoads/movement_component_base_script.gd"
 CollisionAttributeBaseScript="*res://resources/Scripts/AutoLoads/collision_attribute_base_script.gd"
 SignalBusScript="*res://resources/Scripts/AutoLoads/signal_bus_script.gd"
 SignalBus="*res://resources/Scripts/AutoLoads/signal_bus.tscn"
